@@ -57,7 +57,7 @@ const PatientList = () => {
                   </TableCell>
                   <TableCell align="right">
                     <Button variant="outlined" sx={{ mr: 1 }}>
-                      Comment
+                      Prescription
                     </Button>
                     <Button variant="contained" sx={{ mr: 1 }}>
                       View Report

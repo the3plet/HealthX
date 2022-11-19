@@ -68,18 +68,22 @@ export default function BasicCard() {
         }}
       >
         <Typography variant="h6" sx={{ p: 1 }}>
-          Suggestions
+          Prescription
         </Typography>
         <TextField
-            
           width="50"
           alignItems="+"
           variant="standard"
           id="outlined-basic"
           label="Text"
         />
-        <Button  size="small" variant="contained"
-        sx={{display:"flex", flexDirection:"column", m:1}}>Save</Button>
+        <Button
+          size="small"
+          variant="contained"
+          sx={{ display: "flex", flexDirection: "column", m: 1 }}
+        >
+          Save
+        </Button>
       </Box>
     </Container>
   );
