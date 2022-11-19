@@ -7,7 +7,11 @@ import Home from "./Pages/Home";
 import Patient from "./Pages/Patient";
 import Doctor from "./Pages/Doctor";
 import PatientDataCollect from "./Pages/Patient";
-import PatientProfile from "./Pages/PatientProfile"
+import PatientProfile from "./Pages/PatientProfile";
+import ErrorPage from "./Pages/ErrorPage";
+import AuthenticationFailed from "./Pages/AuthenticationFailed";
+
+
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -16,12 +20,17 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="patientdata" element={<Patient/>}/>
-          <Route path="doctor" element={<Doctor/>}/>
-          <Route path="patientdata" element={<PatientDataCollect/>}/>
-          <Route path="patient" element={<PatientProfile/>}/>
+          <Route path="patientdata" element={<Patient />} />
+          <Route path="doctor" element={<Doctor />} />
+          <Route path="patientdata" element={<PatientDataCollect />} />
+          <Route path="patient" element={<PatientProfile />} />
+          <Route path="ErrorPage" element={<ErrorPage />} />
+          <Route
+            path="AuthenticationFailed"
+            element={<AuthenticationFailed />}
+          />
         </Route>
-        </Routes>
+      </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );
