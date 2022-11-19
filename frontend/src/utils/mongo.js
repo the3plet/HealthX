@@ -6,22 +6,22 @@ const newPatient = (patient) => {
     return req.then(res => res.data)
 }
 
-const patientList = () => {
+const getAllPatients= () => {
     const req = axios.get(baseUrl)
     return req.then(res => res.data)
 }
 
-const singlePerson = (id) => {
+const getPatient = (id) => {
     const req = axios.get(`${baseUrl}/${id}`);
     return req.then(res => res.data)
 }
 
-const removepatient = (id) => {
+const removePatient = (id) => {
     const req = axios.delete(`${baseUrl}/${id}`);
     return req.then((res) => res.data);
 };
 
-const exports = { patientList, newPatient, removepatient, singlePerson };
+const exports = { getAllPatients, newPatient,getPatient,removePatient };
 
 // export default newPatient;
 export default exports;

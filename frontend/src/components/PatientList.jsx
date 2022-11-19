@@ -9,16 +9,18 @@ import {
   Button,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-
-const patients = [
-  { avatar: null, name: "Rajesh" },
-  { avatar: null, name: "Kiran" },
-  { avatar: null, name: "Sebastian" },
-];
+import Db from "../utils/mongo";
 
 const PatientList = () => {
+  const [patients, setPatients] = useState([{ name: "no-name" }]);
+
+  useEffect(() => {
+    Db.getAllPatients().then((res) => setPatients(res));
+  }, []);
+
+
   return (
     <Container
       sx={{
@@ -37,7 +39,7 @@ const PatientList = () => {
           <TableHead sx={{ bgcolor: "primary.light" }}>
             <TableRow>
               <TableCell colSpan={2}>
-                <Typography variant="h6">Patient Tracker</Typography>
+                <Typography variant="h6">Your Patients</Typography>
               </TableCell>
             </TableRow>
           </TableHead>

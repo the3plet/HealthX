@@ -1,5 +1,4 @@
 const patientsRouter = require("express").Router();
-const { default: next } = require("next");
 const Patient = require("../models/patient");
 
 patientsRouter.use(function (req, res, next) {
