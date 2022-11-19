@@ -1,29 +1,44 @@
-import React, { useState } from 'react';
-import Container from "@mui/material/Container";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import { Stack } from '@mui/system';
+import { Stack } from "@mui/system";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import Banner from '../components/Banner';
-
+import Banner from "../components/Banner";
+import loginHelper from "../utils/loginHelper";
+import { Snackbar } from "@mui/material";
 
 const Home = () => {
-  const [dialogOpen,setDialogOpen]=useState(false)
-   const handleLoginClick = () => {
-     setDialogOpen(true);
-   };
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [snack, setSnack] = useState({ open: false, message: "" });
 
-   const handleClose = () => {
-     setDialogOpen(false);
-   };
+  const handleLoginClick = () => {
+    setDialogOpen(true);
+  };
+
+  const handleClose = () => {
+    setDialogOpen(false);
+  };
+
+  const handleSnackClose = () => {
+    setSnack(false);
+  };
+
+  const handleLogin = () => {
+    const userEl = document.getElementById("user-id");
+    const passwdEl = document.getElementById("passwd-id");
+    if (!loginHelper.login(userEl.value, passwdEl.value))
+      setSnack({ open: true, message: "Failed to login!" });
+    else setSnack({open:true,message:"Logged in successfully!"});
+  };
+
   return (
     <>
-      <Banner/>
+      <Banner />
       <Box sx={{ backgroundColor: "Blue" }}>
         <Stack
           direction="row"
@@ -43,21 +58,20 @@ const Home = () => {
         <DialogTitle>HealthX Login</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Use your registered Email id and Password
+            Use your registered User ID and Password
           </DialogContentText>
           <TextField
             autoFocus
+            id="user-id"
             margin="dense"
-            id="email"
-            label="Email"
-            type="email"
+            label="User ID"
+            type="text"
             fullWidth
             variant="outlined"
           />
           <TextField
-            autoFocus
+            id="passwd-id"
             margin="dense"
-            id="password"
             label="Password"
             type="password"
             fullWidth
@@ -66,11 +80,18 @@ const Home = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Login</Button>
+          <Button onClick={handleLogin}>Login</Button>
         </DialogActions>
       </Dialog>
+      <Snackbar
+        severity="info"
+        open={snack.open}
+        autoHideDuration={3000}
+        onClose={handleSnackClose}
+        message={snack.message}
+      />
     </>
   );
-}
+};
 
-export default Home
+export default Home;

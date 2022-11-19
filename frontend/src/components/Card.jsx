@@ -16,7 +16,6 @@ import {
 } from "@mui/material";
 
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { borderRadius } from "@mui/system";
 
 const patients = [
   { avatar: null, name: "Smoking Bool" },
