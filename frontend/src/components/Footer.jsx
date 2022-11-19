@@ -1,14 +1,21 @@
-import { Divider } from '@mui/material'
-import React from 'react'
+import { Container } from "@mui/material";
+import React from "react";
 
 const Footer = () => {
   return (
-    <>
-    <div>Footer</div>
-    <Divider/>
-    <div>Footer</div>
-    </>
-  )
-}
+    <Container
+      sx={{
+        borderTop: "2px solid #474E68 ",
+        position: "absolute",
+        bottom: 5,
 
-export default Footer
+        textAlign: "center",
+      }}
+    >
+      Made with 💓 by{" "}
+      <a href="https://github.com/shinjith-dev/HealthX">HealthX</a>
+    </Container>
+  );
+};
+
+export default Footer;
