@@ -4,7 +4,8 @@ import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./Pages/Layout";
 import Home from "./Pages/Home";
-import PatientDataCollect from "./Pages/Patient";
+import Patient from "./Pages/Patient";
+import Doctor from "./Pages/Doctor";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -13,7 +14,8 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
-          <Route path="patientdata" element={<PatientDataCollect/>}/>
+          <Route path="patientdata" element={<Patient/>}/>
+          <Route path="doctor" element={<Doctor/>}/>
         </Route>
       </Routes>
     </BrowserRouter>
