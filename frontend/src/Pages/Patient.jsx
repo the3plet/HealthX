@@ -20,19 +20,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 
 
-
-const sex = [
-  {
-    value: "m",
-    label: "Male",
-  },
-  {
-    value: "w",
-    label: "Women",
-  },
-  
-];
-
 const Patient = () => {
  
   return (
