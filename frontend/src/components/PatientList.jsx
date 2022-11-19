@@ -56,10 +56,13 @@ const PatientList = () => {
                     </span>
                   </TableCell>
                   <TableCell align="right">
+                    <Button variant="outlined" sx={{ mr: 1 }}>
+                      Comment
+                    </Button>
                     <Button variant="contained" sx={{ mr: 1 }}>
                       View Report
                     </Button>
-                    <Button variant="text">Patient Info</Button>
+                    <Button variant="outlined">Patient Info</Button>
                   </TableCell>
                 </TableRow>
               );
