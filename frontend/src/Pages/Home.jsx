@@ -9,6 +9,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import Banner from '../components/Banner';
 
 
 const Home = () => {
@@ -22,9 +23,7 @@ const Home = () => {
    };
   return (
     <>
-      <Container maxWidth="false" sx={{ bgcolor: "#cfe8fc", height: "40vh" }}>
-        Data
-      </Container>
+      <Banner/>
       <Box sx={{ backgroundColor: "Blue" }}>
         <Stack
           direction="row"

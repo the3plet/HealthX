@@ -17,7 +17,7 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
-import db from '../utils/mongo'
+import db from "../utils/mongo";
 
 const Patient = () => {
   const [formData, setFormData] = useState({
@@ -25,12 +25,12 @@ const Patient = () => {
     age: 21,
     email: "",
     phone: "",
-    sex: "female",
-    place:"",
-    smoke:0,
-    alcohol:0,
-    junkFood:0,
-    activiy:0
+    gender: "female",
+    place: "",
+    smoking: 0,
+    alcohol: 0,
+    junkFood: 0,
+    activity: 0,
   });
 
   const handleNameChange = (e) => {
@@ -49,7 +49,7 @@ const Patient = () => {
     setFormData((prev) => ({ ...prev, phone: e.target.value }));
   };
 
-  const handleSexChange = (e) => {
+  const handleGenderChange = (e) => {
     setFormData((prev) => ({ ...prev, sex: e.target.value }));
   };
 
@@ -57,7 +57,7 @@ const Patient = () => {
     setFormData((prev) => ({ ...prev, place: e.target.value }));
   };
 
-  const handleSmokeChange = (e) => {
+  const handleSmokingChange = (e) => {
     setFormData((prev) => ({ ...prev, smoke: e.target.value }));
   };
   const handleAlcoholChange = (e) => {
@@ -72,9 +72,21 @@ const Patient = () => {
     setFormData((prev) => ({ ...prev, activiy: e.target.value }));
   };
 
-  const onFormSubmit = ()=>{
-    db.newPatient(FormData)
-  }
+  const onFormSubmit = () => {
+    db.newPatient(formData).then();
+    setFormData({
+      name: "",
+      age: 21,
+      email: "",
+      phone: "",
+      gender: "female",
+      place: "",
+      smoking: 0,
+      alcohol: 0,
+      junkFood: 0,
+      activity: 0,
+    });
+  };
 
   return (
     <Container maxWidth="lg">
@@ -178,8 +190,8 @@ const Patient = () => {
                 <RadioGroup
                   row
                   sx={{ "& .MuiSvgIcon-root": { fontSize: 20 } }}
-                  value={formData.sex}
-                  onChange={handleSexChange}
+                  value={formData.gender}
+                  onChange={handleGenderChange}
                 >
                   <FormControlLabel
                     value="female"
@@ -229,8 +241,8 @@ const Patient = () => {
                 <Select
                   labelId="smoke-label-id"
                   label="Do you smoke?"
-                  value={formData.smoke}
-                  onChange={handleSmokeChange}
+                  value={formData.smoking}
+                  onChange={handleSmokingChange}
                 >
                   <MenuItem value={0}>I don't Smoke</MenuItem>
                   <MenuItem value={1}>Rarely</MenuItem>
@@ -291,12 +303,14 @@ const Patient = () => {
                 fullWidth
                 sx={{ my: 2, flexGrow: 0.4 }}
               >
-                <InputLabel id="phy-activity-id">Do you engage in Physical Activities?</InputLabel>
+                <InputLabel id="phy-activity-id">
+                  Do you engage in Physical Activities?
+                </InputLabel>
                 <Select
                   labelId="dphy-activity-id"
                   label="Age"
-                  value={formData.activiy}
-                onChange={handleActivityChange}
+                  value={formData.activity}
+                  onChange={handleActivityChange}
                 >
                   <MenuItem value={0}>No</MenuItem>
                   <MenuItem value={1}>Rarely</MenuItem>
@@ -305,7 +319,11 @@ const Patient = () => {
               </FormControl>
             </Stack>
             <Container sx={{ width: "100%", display: "flex" }}>
-              <Button variant="contained" sx={{ mx: "auto" }} onClick={onFormSubmit}>
+              <Button
+                variant="contained"
+                sx={{ mx: "auto" }}
+                onClick={onFormSubmit}
+              >
                 Update
               </Button>
             </Container>
