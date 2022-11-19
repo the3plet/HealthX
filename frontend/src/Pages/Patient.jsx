@@ -79,6 +79,8 @@ const Patient = () => {
       age: 21,
       email: "",
       phone: "",
+      height:"",
+      weight:"",
       gender: "female",
       place: "",
       smoking: 0,
@@ -172,6 +174,24 @@ const Patient = () => {
                 color="primary"
                 sx={{ my: 2, flexGrow: 0.4 }}
                 value={formData.phone}
+                onChange={handlePhoneChange}
+              />
+              <TextField
+                label="Height"
+                variant="standard"
+                type="number"
+                color="primary"
+                sx={{ my: 2, flexGrow: 0.4 }}
+                value={formData.height}
+                onChange={handlePhoneChange}
+              />
+              <TextField
+                label="Weight"
+                variant="standard"
+                type="number"
+                color="primary"
+                sx={{ my: 2, flexGrow: 0.4 }}
+                value={formData.weight}
                 onChange={handlePhoneChange}
               />
             </Stack>
