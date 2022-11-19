@@ -2,13 +2,15 @@ const mongoose = require("mongoose")
 const url = 'mongodb+srv://admin:admin@cluster0.aoulm42.mongodb.net/?retryWrites=true&w=majority'
 const patientSchema = new mongoose.Schema({
   name: String,
-  Age: Number,
-  // Height: Number,
-  // Weight: Number,
-  // Sex: String,
-  // BP: Number,
-  // Smoking: Boolean,
-  // Alchohol: Boolean
+  age: Number,
+  email: String,
+  phone: Number,
+  place: String,
+  gender: String,
+  smoking: String,
+  alcohol: String,
+  junkFood: String,
+  activity: String
 })
 
 console.log('connecting to', url)
