@@ -3,17 +3,20 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <Container
+    <Container 
+    sx={{position:"relative" ,height:"4rem"}}
+    
+    ><Container maxWidth="lg"
       sx={{
         borderTop: "2px solid #474E68 ",
         position: "absolute",
         bottom: 5,
-
-        textAlign: "center",
+      textAlign: "center",
       }}
     >
       Made with 💓 by{" "}
       <a href="https://github.com/shinjith-dev/HealthX">HealthX</a>
+    </Container>
     </Container>
   );
 };
