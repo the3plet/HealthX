@@ -1,16 +1,7 @@
-import React from 'react';
+import React from "react";
 import {
-  Box,
-  Button,
   Card,
   CardContent,
-  Container,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  Select,
-  Stack,
-  TextField,
   Typography,
   Table,
   TableBody,
@@ -19,8 +10,7 @@ import {
   TableHead,
   TableRow,
 } from "@mui/material";
-import CardActions from "@mui/material/CardActions";
-import { color } from '@mui/system';
+
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const patients = [
@@ -34,11 +24,11 @@ const patients = [
 
 export default function BasicCard() {
   return (
-    <Card sx={{ minWidth: 275, backgroundColor: "#eeeeee",mt:"10px" }}>
+    <Card sx={{ minWidth: 275, backgroundColor: "#eeeeee", mt: "10px" }}>
       <CardContent>
         <TableContainer>
           <Table sx={{ minWidth: 500 }}>
-            <TableHead >
+            <TableHead>
               <TableRow>
                 <Typography variant="h6">Report</Typography>
               </TableRow>
@@ -55,7 +45,6 @@ export default function BasicCard() {
                         {patient.name}
                       </span>
                     </TableCell>
-                    
                   </TableRow>
                 );
               })}
