@@ -12,16 +12,70 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { dblClick } from "@testing-library/user-event/dist/click";
-import React from "react";
+import React, { useState } from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
-
+import db from '../utils/mongo'
 
 const Patient = () => {
- 
+  const [formData, setFormData] = useState({
+    name: "",
+    age: 21,
+    email: "",
+    phone: "",
+    sex: "female",
+    place:"",
+    smoke:0,
+    alcohol:0,
+    junkFood:0,
+    activiy:0
+  });
+
+  const handleNameChange = (e) => {
+    setFormData((prev) => ({ ...prev, name: e.target.value }));
+  };
+
+  const handleAgeChange = (e) => {
+    setFormData((prev) => ({ ...prev, age: e.target.value }));
+  };
+
+  const handleEmailChange = (e) => {
+    setFormData((prev) => ({ ...prev, email: e.target.value }));
+  };
+
+  const handlePhoneChange = (e) => {
+    setFormData((prev) => ({ ...prev, phone: e.target.value }));
+  };
+
+  const handleSexChange = (e) => {
+    setFormData((prev) => ({ ...prev, sex: e.target.value }));
+  };
+
+  const handlePlaceChange = (e) => {
+    setFormData((prev) => ({ ...prev, place: e.target.value }));
+  };
+
+  const handleSmokeChange = (e) => {
+    setFormData((prev) => ({ ...prev, smoke: e.target.value }));
+  };
+  const handleAlcoholChange = (e) => {
+    setFormData((prev) => ({ ...prev, alcohol: e.target.value }));
+  };
+
+  const handleJunkFoodChange = (e) => {
+    setFormData((prev) => ({ ...prev, junkFood: e.target.value }));
+  };
+
+  const handleActivityChange = (e) => {
+    setFormData((prev) => ({ ...prev, activiy: e.target.value }));
+  };
+
+  const onFormSubmit = ()=>{
+    db.newPatient(FormData)
+  }
+
   return (
     <Container maxWidth="lg">
       <Container fluid>
@@ -68,6 +122,8 @@ const Patient = () => {
                 type="text"
                 color="primary"
                 sx={{ my: 2, flexGrow: 0.4 }}
+                value={formData.name}
+                onChange={handleNameChange}
               />
               <TextField
                 label="Age"
@@ -75,6 +131,8 @@ const Patient = () => {
                 type="number"
                 color="primary"
                 sx={{ my: 2, flexGrow: 0.4 }}
+                value={formData.age}
+                onChange={handleAgeChange}
               />
             </Stack>
             <Stack
@@ -89,16 +147,20 @@ const Patient = () => {
               <TextField
                 label="Email"
                 variant="standard"
-                type="text"
+                type="email"
                 color="primary"
                 sx={{ my: 2, flexGrow: 0.4 }}
+                value={formData.email}
+                onChange={handleEmailChange}
               />
               <TextField
                 label="Phone"
                 variant="standard"
-                type="number"
+                type="text"
                 color="primary"
                 sx={{ my: 2, flexGrow: 0.4 }}
+                value={formData.phone}
+                onChange={handlePhoneChange}
               />
             </Stack>
             <Stack
@@ -111,34 +173,38 @@ const Patient = () => {
                 mb: 2,
               }}
             >
-              <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
-              <RadioGroup
-                aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
-                name="radio-buttons-group"
-                sx={{ "& .MuiSvgIcon-root": { fontSize: 20 } }}
-              >
-                <FormControlLabel
-                  value="female"
-                  control={<Radio />}
-                  label="Female"
-                />
-                <FormControlLabel
-                  value="male"
-                  control={<Radio />}
-                  label="Male"
-                />
-                <FormControlLabel
-                  value="other"
-                  control={<Radio />}
-                  label="Other"
-                />
-              </RadioGroup>
+              <FormControl variant="standard" sx={{ my: 2, flexGrow: 0.4 }}>
+                <FormLabel>Gender:</FormLabel>
+                <RadioGroup
+                  row
+                  sx={{ "& .MuiSvgIcon-root": { fontSize: 20 } }}
+                  value={formData.sex}
+                  onChange={handleSexChange}
+                >
+                  <FormControlLabel
+                    value="female"
+                    control={<Radio />}
+                    label="Female"
+                  />
+                  <FormControlLabel
+                    value="male"
+                    control={<Radio />}
+                    label="Male"
+                  />
+                  <FormControlLabel
+                    value="other"
+                    control={<Radio />}
+                    label="Other"
+                  />
+                </RadioGroup>
+              </FormControl>
               <TextField
                 label="Place"
                 variant="standard"
-                color="primary"
+                type="text"
                 sx={{ my: 2, flexGrow: 0.4 }}
+                value={formData.place}
+                onChange={handlePlaceChange}
               />
             </Stack>
             <Typography variant="h6" sx={{ fontWeight: 500 }}>
@@ -159,11 +225,16 @@ const Patient = () => {
                 fullWidth
                 sx={{ my: 2, flexGrow: 0.4 }}
               >
-                <InputLabel>Do you smoke?</InputLabel>
-                <Select label="Do you smoke?">
-                  <MenuItem value={10}>I don't Smoke</MenuItem>
-                  <MenuItem value={20}>Rarely</MenuItem>
-                  <MenuItem value={30}>Frequently (6-7 times a week)</MenuItem>
+                <InputLabel id="smoke-label-id">Do you smoke?</InputLabel>
+                <Select
+                  labelId="smoke-label-id"
+                  label="Do you smoke?"
+                  value={formData.smoke}
+                  onChange={handleSmokeChange}
+                >
+                  <MenuItem value={0}>I don't Smoke</MenuItem>
+                  <MenuItem value={1}>Rarely</MenuItem>
+                  <MenuItem value={2}>Frequently (6-7 times a week)</MenuItem>
                 </Select>
               </FormControl>
               <FormControl
@@ -171,15 +242,18 @@ const Patient = () => {
                 fullWidth
                 sx={{ my: 2, flexGrow: 0.4 }}
               >
-                <InputLabel>Do you consume alcohol?</InputLabel>
+                <InputLabel id="alcohol-label-id">
+                  Do you consume alcohol?
+                </InputLabel>
                 <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  label="Age"
+                  labelId="alcohol-label-id"
+                  label="Do you consume alcohol?"
+                  value={formData.alcohol}
+                  onChange={handleAlcoholChange}
                 >
-                  <MenuItem value={10}>I don't Drink</MenuItem>
-                  <MenuItem value={20}>Rarely</MenuItem>
-                  <MenuItem value={30}>Frequently</MenuItem>
+                  <MenuItem value={0}>I don't Drink</MenuItem>
+                  <MenuItem value={1}>Rarely</MenuItem>
+                  <MenuItem value={2}>Frequently</MenuItem>
                 </Select>
               </FormControl>
             </Stack>
@@ -198,11 +272,18 @@ const Patient = () => {
                 fullWidth
                 sx={{ my: 2, flexGrow: 0.4 }}
               >
-                <InputLabel>Do you eat Junk Food?</InputLabel>
-                <Select label="Do you smoke?">
-                  <MenuItem value={0}>Slightly/Nil</MenuItem>
-                  <MenuItem value={20}>Moderately</MenuItem>
-                  <MenuItem value={30}>Heavily</MenuItem>
+                <InputLabel id="junk-label-id">
+                  Do you eat Junk Food?
+                </InputLabel>
+                <Select
+                  labelId="junk-label-id"
+                  label="Do you eat Junk Food?"
+                  value={formData.junkFood}
+                  onChange={handleJunkFoodChange}
+                >
+                  <MenuItem value={0}>Slightly/No</MenuItem>
+                  <MenuItem value={1}>Moderately</MenuItem>
+                  <MenuItem value={2}>Heavily</MenuItem>
                 </Select>
               </FormControl>
               <FormControl
@@ -210,20 +291,21 @@ const Patient = () => {
                 fullWidth
                 sx={{ my: 2, flexGrow: 0.4 }}
               >
-                <InputLabel>Do you engage in Physical Activities?</InputLabel>
+                <InputLabel id="phy-activity-id">Do you engage in Physical Activities?</InputLabel>
                 <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
+                  labelId="dphy-activity-id"
                   label="Age"
+                  value={formData.activiy}
+                onChange={handleActivityChange}
                 >
-                  <MenuItem value={10}>No</MenuItem>
-                  <MenuItem value={20}>Rarely</MenuItem>
-                  <MenuItem value={30}>Daily</MenuItem>
+                  <MenuItem value={0}>No</MenuItem>
+                  <MenuItem value={1}>Rarely</MenuItem>
+                  <MenuItem value={2}>Daily</MenuItem>
                 </Select>
               </FormControl>
             </Stack>
             <Container sx={{ width: "100%", display: "flex" }}>
-              <Button variant="contained" sx={{ mx: "auto" }}>
+              <Button variant="contained" sx={{ mx: "auto" }} onClick={onFormSubmit}>
                 Update
               </Button>
             </Container>
