@@ -12,7 +12,8 @@ const patientSchema = new mongoose.Schema({
   junkFood: Number,
   activity: Number,
   height: Number,
-  weight: Number
+  weight: Number,
+  existingUser: String
 })
 
 console.log('connecting to', url)
