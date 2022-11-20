@@ -18,6 +18,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 import db from "../utils/mongo";
+import { useNavigate } from "react-router-dom";
 const Patient = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -33,6 +34,7 @@ const Patient = () => {
     junkFood: 0,
     activity: 0,
   });
+  const navigate = useNavigate()
 
   const handleNameChange = (e) => {
     setFormData((prev) => ({ ...prev, name: e.target.value }));
@@ -82,7 +84,9 @@ const Patient = () => {
   };
 
   const onFormSubmit = () => {
-    db.newPatient(formData).then();
+    db.newPatient(formData).then(res=>{
+      navigate(`/patient/${res.id}`)
+    });
     setFormData({
       name: "",
       age: 0,
@@ -97,6 +101,7 @@ const Patient = () => {
       junkFood: 0,
       activity: 0,
     });
+
   };
 
 

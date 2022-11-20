@@ -10,11 +10,14 @@ import {
 import db from "../utils/mongo";
 import BasicCard from "../components/Card";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useParams } from "react-router-dom";
 
 const PatientProfile = () => {
+  const params = useParams();
   const [patient, setPatient] = useState({});
+
   useEffect(() => {
-    db.getPatient("6379a1040a496ff65da23da0").then((res) => {
+    db.getPatient(params.id).then((res) => {
       const info = { ...res };
       switch (info.smoking) {
         case 0:
@@ -58,7 +61,7 @@ const PatientProfile = () => {
       info.bmi = info.weight / (info.height * info.height);
       setPatient(info);
     });
-  }, [setPatient]);
+  }, [setPatient,params.id]);
 
   console.log(patient);
 
@@ -131,7 +134,7 @@ const PatientProfile = () => {
                 sx={{ width: "2rem", height: "2rem", mr: 1 }}
               />
               <Typography variant="subtitle1">
-              {" Recommended diet plan: <upcoming feature>"}
+                {" Recommended diet plan: <upcoming feature>"}
               </Typography>
             </span>
           </ListItem>

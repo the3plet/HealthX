@@ -12,15 +12,18 @@ import {
 import React, { useEffect, useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Db from "../utils/mongo";
+import { useNavigate } from "react-router-dom";
 
 const PatientList = () => {
   const [patients, setPatients] = useState([{ name: "no-name" }]);
-
+const navigate = useNavigate()
   useEffect(() => {
     Db.getAllPatients().then((res) => setPatients(res));
   }, []);
 
-
+const handleInfoClick = (id)=>{
+navigate(`/patient/${id}`)
+}
   return (
     <Container
       sx={{
@@ -46,7 +49,7 @@ const PatientList = () => {
           <TableBody>
             {patients.map((patient) => {
               return (
-                <TableRow key={patient.name}>
+                <TableRow key={patient.name} onClick={()=>{handleInfoClick(patient.id)}}>
                   <TableCell sx={{ py: 1, px: 1 }}>
                     <span style={{ display: "flex", alignItems: "center" }}>
                       <AccountCircleIcon

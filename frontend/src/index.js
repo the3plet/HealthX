@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="patientdata" element={<Patient />} />
           <Route path="doctor" element={<Doctor />} />
           <Route path="patientdata" element={<Patient />} />
-          <Route path="patient" element={<PatientProfile />} />
+          <Route path="patient/:id" element={<PatientProfile />} />
           <Route path="ErrorPage" element={<ErrorPage />} />
           <Route
             path="AuthenticationFailed"
