@@ -6,7 +6,6 @@ import Layout from "./Pages/Layout";
 import Home from "./Pages/Home";
 import Patient from "./Pages/Patient";
 import Doctor from "./Pages/Doctor";
-import PatientDataCollect from "./Pages/Patient";
 import PatientProfile from "./Pages/PatientProfile";
 import ErrorPage from "./Pages/ErrorPage";
 import AuthenticationFailed from "./Pages/AuthenticationFailed";
@@ -20,7 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route index element={<Home />} />
           <Route path="patientdata" element={<Patient />} />
           <Route path="doctor" element={<Doctor />} />
-          <Route path="patientdata" element={<PatientDataCollect />} />
+          <Route path="patientdata" element={<Patient />} />
           <Route path="patient" element={<PatientProfile />} />
           <Route path="ErrorPage" element={<ErrorPage />} />
           <Route
