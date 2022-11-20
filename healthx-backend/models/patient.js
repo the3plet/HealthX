@@ -3,12 +3,14 @@ const url = 'mongodb+srv://admin:admin@cluster0.aoulm42.mongodb.net/?retryWrites
 const patientSchema = new mongoose.Schema({
   name: String,
   Age: Number,
-  // Height: Number,
-  // Weight: Number,
-  // Sex: String,
-  // BP: Number,
-  // Smoking: Boolean,
-  // Alchohol: Boolean
+  email: String,
+  phone: Number,
+  place: String,
+  Sex: String,
+  Smoking: Boolean,
+  Alchohol: Boolean
+
+
 })
 
 console.log('connecting to', url)
