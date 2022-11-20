@@ -1,5 +1,5 @@
 import axios from 'axios'
-const baseUrl = 'localhost/patient/'
+const baseUrl = "http://localhost:3003/patient/";
 
 const newPatient = (patient) => {
     const req = axios.post(baseUrl, patient);
