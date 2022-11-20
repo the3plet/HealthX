@@ -1,7 +1,7 @@
 {
   "name": "fontend",
   "version": "0.1.0",
-  "homepage": "/",
+  "homepage": "https://health-kyaf.onrender.com/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
