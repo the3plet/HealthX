@@ -6,7 +6,7 @@ import {
   Typography,
   Link,
 } from "@mui/material";
-import CurrentDate from "../components/Date";
+
 import BasicCard from "../components/Card";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
@@ -20,9 +20,6 @@ const PatientProfile = () => {
       <Container fluid>
         <Typography variant="h5" sx={{ fontWeight: 500, mt: 1, p: 1, pb: 0 }}>
           Health OverView Report
-        </Typography>
-        <Typography variant="body1" sx={{ px: 2 }}>
-          <CurrentDate />
         </Typography>
       </Container>
       <span

@@ -76,7 +76,7 @@ const Home = () => {
           <Card
             sx={{ maxWidth: 300, border: 2, borderColor: "secondary.main" }}
           >
-            <CardMedia component="img" src={patientIllu} height={250} />
+            <CardMedia component="img" src={patientIllu} sx={{width:"10rem",ml:1}} height={250} />
             <CardContent>
               <Typography variant="body1" sx={{ my: 1, mb: 2 }}>
                 Get time to time updates and medication
@@ -89,7 +89,7 @@ const Home = () => {
           <Card
             sx={{ maxWidth: 300, border: 2, borderColor: "secondary.main" }}
           >
-            <CardMedia component="img" src={doctorIllu} sx={{width:"10rem"}} height={250} />
+            <CardMedia component="img" src={doctorIllu} sx={{width:"10rem",mx:"auto"}} height={250} />
             <CardContent>
               <Typography variant="body1" sx={{ my: 1, mb: 2 }}>
                 Manage Payments and Track Patient Records{" "}
