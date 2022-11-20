@@ -26,6 +26,8 @@ const Patient = () => {
     phone: "",
     gender: "female",
     place: "",
+    height:0,
+    weight:0,
     smoking: 0,
     alcohol: 0,
     junkFood: 0,
@@ -78,11 +80,11 @@ const Patient = () => {
     db.newPatient(formData).then();
     setFormData({
       name: "",
-      age: 21,
+      age: 0,
       email: "",
       phone: "",
-      height:"",
-      weight:"",
+      height:0,
+      weight:0,
       gender: "female",
       place: "",
       smoking: 0,
@@ -159,52 +161,6 @@ const Patient = () => {
                 width: "100%",
                 display: "flex",
                 justifyContent: "space-evenly",
-              }}
-            >
-              <TextField
-                label="Email"
-                variant="standard"
-                type="email"
-                color="primary"
-                sx={{ my: 2, flexGrow: 0.4 }}
-                value={formData.email}
-                onChange={handleEmailChange}
-              />
-              <TextField
-                label="Phone"
-                variant="standard"
-                type="text"
-                color="primary"
-                sx={{ my: 2, flexGrow: 0.4 }}
-                value={formData.phone}
-                onChange={handlePhoneChange}
-              />
-              <TextField
-                label="Height"
-                variant="standard"
-                type="number"
-                color="primary"
-                sx={{ my: 2, flexGrow: 0.4 }}
-                value={formData.height}
-                onChange={handlePhoneChange}
-              />
-              <TextField
-                label="Weight"
-                variant="standard"
-                type="number"
-                color="primary"
-                sx={{ my: 2, flexGrow: 0.4 }}
-                value={formData.weight}
-                onChange={handlePhoneChange}
-              />
-            </Stack>
-            <Stack
-              gap={2}
-              direction="row"
-              sx={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "space-evenly",
                 mb: 2,
               }}
             >
@@ -242,6 +198,64 @@ const Patient = () => {
                 onChange={handlePlaceChange}
               />
             </Stack>
+            <Stack
+              gap={2}
+              direction="row"
+              sx={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-evenly",
+              }}
+            >
+              <TextField
+                label="Email"
+                variant="standard"
+                type="email"
+                color="primary"
+                sx={{ my: 2, flexGrow: 0.4 }}
+                value={formData.email}
+                onChange={handleEmailChange}
+              />
+              <TextField
+                label="Phone"
+                variant="standard"
+                type="text"
+                color="primary"
+                sx={{ my: 2, flexGrow: 0.4 }}
+                value={formData.phone}
+                onChange={handlePhoneChange}
+              />
+            
+            </Stack>
+            <Stack
+              gap={2}
+              direction="row"
+              sx={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-evenly",
+                mb: 2,
+              }}
+            >
+            <TextField
+                label="Height (in cm)"
+                variant="standard"
+                type="number"
+                color="primary"
+                sx={{ my: 2, flexGrow: 0.4 }}
+                value={formData.height}
+                onChange={handlePhoneChange}
+              />
+              <TextField
+                label="Weight (in Kg)"
+                variant="standard"
+                type="number"
+                color="primary"
+                sx={{ my: 2, flexGrow: 0.4 }}
+                value={formData.weight}
+                onChange={handlePhoneChange}
+              />
+           </Stack>
             <Typography variant="h6" sx={{ fontWeight: 500 }}>
               ADD MORE INFO
             </Typography>

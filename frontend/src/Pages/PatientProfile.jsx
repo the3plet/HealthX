@@ -14,7 +14,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const PatientProfile = () => {
   const [patient, setPatient] = useState({});
   useEffect(() => {
-    db.getPatient("637950d5cb10bc3470e4ea4d").then((res) => {
+    db.getPatient("6379a1040a496ff65da23da0").then((res) => {
       const info = { ...res };
       switch (info.smoking) {
         case 0:
@@ -42,6 +42,7 @@ const PatientProfile = () => {
         default:
           info.junkFood = `Not Assigned`;
       }
+      info.bmi = info.weight / (info.height * info.height);
       setPatient(info);
     });
   }, [setPatient]);
@@ -72,7 +73,7 @@ const PatientProfile = () => {
         </Link>
       </Box>
       <Container>
-        {/* <BasicCard /> */}
+        <BasicCard />
         <List>
           <ListItem>
             <span style={{ display: "flex", alignItems: "center" }}>
@@ -81,6 +82,26 @@ const PatientProfile = () => {
               />
 
               {patient.smoking}
+            </span>
+          </ListItem>
+          <ListItem>
+            <span style={{ display: "flex", alignItems: "center" }}>
+              <AccountCircleIcon
+                sx={{ width: "2rem", height: "2rem", mr: 1 }}
+              />
+              <Typography variant="subtitle1">
+                Alcohol: {patient.alcohol}
+              </Typography>
+            </span>
+          </ListItem>
+          <ListItem>
+            <span style={{ display: "flex", alignItems: "center" }}>
+              <AccountCircleIcon
+                sx={{ width: "2rem", height: "2rem", mr: 1 }}
+              />
+              <Typography variant="subtitle1">
+                BMI: {patient.bmi}
+              </Typography>
             </span>
           </ListItem>
         </List>
