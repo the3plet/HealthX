@@ -57,7 +57,8 @@ patientsRouter.post("/", (req, res, next) => {
         junkFood: body.junkFood,
         activity: body.activity,
         height: body.height,
-        weight: body.weight
+        weight: body.weight,
+        existingUser: body.existingUser
     });
 
     patient
