@@ -24,7 +24,7 @@ const PatientProfile = () => {
           info.smoking = `Follow healthy practices quit smoking`;
           break;
         case 2:
-          info.smoking = `Risc of cardiac arrest`;
+          info.smoking = `Risk of cardiac arrest`;
           break;
         default:
           info.smoking = `Not Assigned`;
@@ -37,7 +37,20 @@ const PatientProfile = () => {
           info.alcohol = `Increase in BP`;
           break;
         case 2:
-          info.junkFood = `High risc of obesity`;
+          info.alcohol = "Quit drinking, Risk of liver damage";
+          break;
+        default:
+          info.smoking = `Not Assigned`;
+      }
+      switch (info.junkFood) {
+        case 0:
+          info.alcohol = `Maintain This lifestyle`;
+          break;
+        case 1:
+          info.junkFood = "High cholestrol and cardiac problems";
+          break;
+        case 2:
+          info.junkFood = `High risk of obesity`;
           break;
         default:
           info.junkFood = `Not Assigned`;
@@ -65,8 +78,8 @@ const PatientProfile = () => {
       >
         <AccountCircleIcon sx={{ width: "8rem", height: "8rem", mr: 1 }} />
         {patient.name}
-        <Typography textAlign="center">Age:24</Typography>
-        <Typography textAlign="center">Male</Typography>
+        <Typography textAlign="center">Age: {patient.age}</Typography>
+        <Typography textAlign="center">Gender: {patient.gender}</Typography>
       </span>
       <Box pt="10px" textAlign="center">
         Genereated Report
@@ -81,8 +94,7 @@ const PatientProfile = () => {
               <AccountCircleIcon
                 sx={{ width: "2rem", height: "2rem", mr: 1 }}
               />
-
-              {patient.smoking}
+              Smoking: {patient.smoking}
             </span>
           </ListItem>
           <ListItem>
@@ -101,6 +113,26 @@ const PatientProfile = () => {
                 sx={{ width: "2rem", height: "2rem", mr: 1 }}
               />
               <Typography variant="subtitle1">BMI: {patient.bmi}</Typography>
+            </span>
+          </ListItem>
+          <ListItem>
+            <span style={{ display: "flex", alignItems: "center" }}>
+              <AccountCircleIcon
+                sx={{ width: "2rem", height: "2rem", mr: 1 }}
+              />
+              <Typography variant="subtitle1">
+                Junk Food Consumpton: {patient.junkFood}
+              </Typography>
+            </span>
+          </ListItem>
+          <ListItem>
+            <span style={{ display: "flex", alignItems: "center" }}>
+              <AccountCircleIcon
+                sx={{ width: "2rem", height: "2rem", mr: 1 }}
+              />
+              <Typography variant="subtitle1">
+              {" Recommended diet plan: <upcoming feature>"}
+              </Typography>
             </span>
           </ListItem>
         </List>
