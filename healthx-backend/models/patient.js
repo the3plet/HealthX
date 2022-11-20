@@ -8,7 +8,7 @@ const patientSchema = new mongoose.Schema({
   place: String,
   gender: String,
   smoking: String,
-  alchohol: String,
+  alcohol: String,
   junkFood: String,
   physical: String
 })
