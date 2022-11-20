@@ -48,6 +48,14 @@ patientsRouter.post("/", (req, res, next) => {
     const patient = new Patient({
         name: body.name,
         age: body.age,
+        email: body.email,
+        phone: body.phone,
+        place: body.place,
+        gender: body.gender,
+        smoking: body.smoking,
+        alcohol: body.alcohol,
+        junkFood: body.junkFood,
+        activity: body.activity
     });
 
     patient
