@@ -6,6 +6,7 @@ import {
   Container,
   FormControl,
   InputLabel,
+  Link,
   MenuItem,
   Select,
   Stack,
@@ -381,8 +382,8 @@ const Patient = () => {
             Need help?
           </Typography>
           <Box
-            sx={{ borderRadius: "15px", bgcolor: "primary.dark", px: 3, py: 1 }}
-          >
+             sx={{ borderRadius: "15px", bgcolor: "primary.dark", px: 3, py: 1 }}
+          ><Link href='mailto: shinjithkanhangad@gmail.comsubject = I-am-stuck-on-healthx'>
             <Typography
               variant="h6"
               sx={{ textAlign: "center", color: "lightgrey" }}
@@ -395,6 +396,7 @@ const Patient = () => {
             >
               Assitance
             </Typography>
+            </Link>
           </Box>
         </Box>
       </Box>

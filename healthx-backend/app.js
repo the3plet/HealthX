@@ -9,9 +9,6 @@ app.use(cors());
 app.use(express.static("build"))
 
 
-app.get('/', (req, res) => {
-    res.send('<p>Hello user</p>')
-})
 
 app.use("/patient", patientsRouter)
 // app.use("")

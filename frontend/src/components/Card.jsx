@@ -1,30 +1,13 @@
 import React from "react";
 import {
-  Card,
-  CardContent,
   Typography,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
   Container,
   Box,
   TextField,
   Button,
 } from "@mui/material";
 
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
-const patients = [
-  { avatar: null, name: "Smoking Bool" },
-  { avatar: null, name: "Alcohol Bool" },
-  { avatar: null, name: "BMI" },
-  { avatar: null, name: "Health Risk" },
-  { avatar: null, name: "Diet" },
-  { avatar: null, name: "Activity" },
-];
 
 export default function BasicCard() {
   return (
