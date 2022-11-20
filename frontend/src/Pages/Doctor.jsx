@@ -64,7 +64,7 @@ const Doctor = () => {
         >
           <Typography
             variant="h6"
-            sx={{ px: 2, py: 1, bgcolor: "primary.light" }}
+            sx={{ px: 2, py: 1, bgcolor: "primary.dark",color:"primary.contrastText" }}
           >
             Your Availability for Patients
           </Typography>

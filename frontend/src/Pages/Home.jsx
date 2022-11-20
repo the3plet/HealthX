@@ -10,18 +10,36 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Banner from "../components/Banner";
 import loginHelper from "../utils/loginHelper";
-import { Snackbar } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Container,
+  Divider,
+  Snackbar,
+  Typography,
+} from "@mui/material";
+import { useNavigate } from "react-router-dom";
+import patientIllu from "../images/patient_illu.png";
+import doctorIllu from "../images/doctor_illu.png";
+
 
 const Home = () => {
-  const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialog, setDialog] = useState({ open: false, type: "patient" });
   const [snack, setSnack] = useState({ open: false, message: "" });
 
-  const handleLoginClick = () => {
-    setDialogOpen(true);
+  const navigate = useNavigate();
+
+  const handlePatientLogin = () => {
+    setDialog({ open: true, type: "patient" });
+  };
+
+  const handleDoctorLogin = () => {
+    setDialog({ open: true, type: "doctor" });
   };
 
   const handleClose = () => {
-    setDialogOpen(false);
+    setDialog(false);
   };
 
   const handleSnackClose = () => {
@@ -31,37 +49,66 @@ const Home = () => {
   const handleLogin = () => {
     const userEl = document.getElementById("user-id");
     const passwdEl = document.getElementById("passwd-id");
-    if (!loginHelper.login(userEl.value, passwdEl.value))
-      setSnack({ open: true, message: "Failed to login!" });
-    else setSnack({open:true,message:"Logged in successfully!"});
+    if (dialog.type === "patient") {
+      if (loginHelper.loginPatient(userEl.value, passwdEl.value)) {
+        setSnack({ open: true, message: "Logged in successfully!" });
+        navigate("/patientdata");
+      } else setSnack({ open: true, message: "Failed to login!" });
+    } else if (dialog.type === "doctor") {
+      if (loginHelper.loginDoctor(userEl.value, passwdEl.value)) {
+        setSnack({ open: true, message: "Logged in successfully!" });
+        navigate("/doctor");
+      } else setSnack({ open: true, message: "Failed to login!" });
+    }
+
+    setDialog(false);
   };
 
   return (
-    <>
+    <Container fluid disableGutters maxWidth="false">
       <Banner />
-      <Box sx={{ backgroundColor: "Blue" }}>
+      <Box sx={{ px: 2,py:4 }}>
         <Stack
           direction="row"
-          spacing={2}
+          spacing={4}
           sx={{ py: 2, display: "flex", justifyContent: "center" }}
         >
-          <Button variant="contained" onClick={handleLoginClick}>
-            Patient
-          </Button>
-          <Button variant="contained" onClick={handleLoginClick}>
-            Doctor
-          </Button>
+          <Card
+            sx={{ maxWidth: 300, border: 2, borderColor: "secondary.main" }}
+          >
+            <CardMedia component="img" src={patientIllu} height={250} />
+            <CardContent>
+              <Typography variant="body1" sx={{ my: 1, mb: 2 }}>
+                Get time to time updates and medication
+              </Typography>
+              <Button variant="contained" color="secondary" onClick={handlePatientLogin}>
+                Login as Patient
+              </Button>
+            </CardContent>
+          </Card>
+          <Card
+            sx={{ maxWidth: 300, border: 2, borderColor: "secondary.main" }}
+          >
+            <CardMedia component="img" src={doctorIllu} sx={{width:"10rem"}} height={250} />
+            <CardContent>
+              <Typography variant="body1" sx={{ my: 1, mb: 2 }}>
+                Manage Payments and Track Patient Records{" "}
+              </Typography>
+              <Button variant="contained" color="secondary" onClick={handleDoctorLogin}>
+                Login as Doctor
+              </Button>
+            </CardContent>
+          </Card>
         </Stack>
       </Box>
 
-      <Dialog open={dialogOpen} onClose={handleClose}>
+      <Dialog open={dialog.open} onClose={handleClose}>
         <DialogTitle>HealthX Login</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Use your registered User ID and Password
           </DialogContentText>
           <TextField
-            autoFocus
             id="user-id"
             margin="dense"
             label="User ID"
@@ -90,7 +137,7 @@ const Home = () => {
         onClose={handleSnackClose}
         message={snack.message}
       />
-    </>
+    </Container>
   );
 };
 
