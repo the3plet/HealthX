@@ -4,13 +4,13 @@ const patientSchema = new mongoose.Schema({
   name: String,
   age: Number,
   email: String,
-  phone: Number,
+  phone: String,
   place: String,
   gender: String,
-  smoking: String,
-  alcohol: String,
-  junkFood: String,
-  activity: String
+  smoking: Number,
+  alcohol: Number,
+  junkFood: Number,
+  activity: Number
 })
 
 console.log('connecting to', url)
