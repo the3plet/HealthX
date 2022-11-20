@@ -12,13 +12,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 import db from "../utils/mongo";
-
 const Patient = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -32,6 +31,9 @@ const Patient = () => {
     junkFood: 0,
     activity: 0,
   });
+
+  
+
 
   const handleNameChange = (e) => {
     setFormData((prev) => ({ ...prev, name: e.target.value }));
@@ -89,6 +91,7 @@ const Patient = () => {
       activity: 0,
     });
   };
+
 
   return (
     <Container maxWidth="lg">

@@ -15,7 +15,6 @@ import {
   CardContent,
   CardMedia,
   Container,
-  Divider,
   Snackbar,
   Typography,
 } from "@mui/material";
