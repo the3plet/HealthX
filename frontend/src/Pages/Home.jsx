@@ -21,6 +21,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import patientIllu from "../images/patient_illu.png";
 import doctorIllu from "../images/doctor_illu.png";
+import NewsFeed from "../components/NewsFeed";
 
 
 const Home = () => {
@@ -100,7 +101,7 @@ const Home = () => {
           </Card>
         </Stack>
       </Box>
-
+      <NewsFeed />
       <Dialog open={dialog.open} onClose={handleClose}>
         <DialogTitle>HealthX Login</DialogTitle>
         <DialogContent>
@@ -137,6 +138,7 @@ const Home = () => {
         message={snack.message}
       />
     </Container>
+   
   );
 };
 

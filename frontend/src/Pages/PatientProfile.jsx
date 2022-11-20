@@ -125,7 +125,7 @@ const PatientProfile = () => {
                 sx={{ width: "2rem", height: "2rem", mr: 1 }}
               />
               <Typography variant="subtitle1">
-                Junk Food Consumpton: {patient.junkFood}
+                Junk Food Consumption: {patient.junkFood}
               </Typography>
             </span>
           </ListItem>
@@ -135,7 +135,7 @@ const PatientProfile = () => {
                 sx={{ width: "2rem", height: "2rem", mr: 1 }}
               />
               <Typography variant="subtitle1">
-                {" Recommended diet plan: <upcoming feature>"}
+                {"Recommended diet plan: <upcoming feature>"}
               </Typography>
             </span>
           </ListItem>
