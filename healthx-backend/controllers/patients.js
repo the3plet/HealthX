@@ -55,7 +55,9 @@ patientsRouter.post("/", (req, res, next) => {
         smoking: body.smoking,
         alcohol: body.alcohol,
         junkFood: body.junkFood,
-        activity: body.activity
+        activity: body.activity,
+        height: body.height,
+        weight: body.weight
     });
 
     patient

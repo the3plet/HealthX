@@ -10,7 +10,9 @@ const patientSchema = new mongoose.Schema({
   smoking: Number,
   alcohol: Number,
   junkFood: Number,
-  activity: Number
+  activity: Number,
+  height: Number,
+  weight: Number
 })
 
 console.log('connecting to', url)
