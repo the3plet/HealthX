@@ -50,7 +50,7 @@ const Patient = () => {
   };
 
   const handleGenderChange = (e) => {
-    setFormData((prev) => ({ ...prev, sex: e.target.value }));
+    setFormData((prev) => ({ ...prev, gender: e.target.value }));
   };
 
   const handlePlaceChange = (e) => {
@@ -58,7 +58,7 @@ const Patient = () => {
   };
 
   const handleSmokingChange = (e) => {
-    setFormData((prev) => ({ ...prev, smoke: e.target.value }));
+    setFormData((prev) => ({ ...prev, smoking: e.target.value }));
   };
   const handleAlcoholChange = (e) => {
     setFormData((prev) => ({ ...prev, alcohol: e.target.value }));
@@ -69,7 +69,15 @@ const Patient = () => {
   };
 
   const handleActivityChange = (e) => {
-    setFormData((prev) => ({ ...prev, activiy: e.target.value }));
+    setFormData((prev) => ({ ...prev, activity: e.target.value }));
+  };
+
+  const handleWeightChange = (e) => {
+    setFormData((prev) => ({ ...prev, weight: e.target.value }));
+  };
+
+  const handleHeightChange = (e) => {
+    setFormData((prev) => ({ ...prev, height: e.target.value }));
   };
 
   const onFormSubmit = () => {
@@ -183,7 +191,7 @@ const Patient = () => {
                 color="primary"
                 sx={{ my: 2, flexGrow: 0.4 }}
                 value={formData.height}
-                onChange={handlePhoneChange}
+                onChange={handleHeightChange}
               />
               <TextField
                 label="Weight"
@@ -192,7 +200,7 @@ const Patient = () => {
                 color="primary"
                 sx={{ my: 2, flexGrow: 0.4 }}
                 value={formData.weight}
-                onChange={handlePhoneChange}
+                onChange={handleWeightChange}
               />
             </Stack>
             <Stack
@@ -328,7 +336,7 @@ const Patient = () => {
                 </InputLabel>
                 <Select
                   labelId="dphy-activity-id"
-                  label="Age"
+                  label="Do you engage in Physical Activities?"
                   value={formData.activity}
                   onChange={handleActivityChange}
                 >
