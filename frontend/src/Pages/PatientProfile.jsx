@@ -58,10 +58,11 @@ const PatientProfile = () => {
         default:
           info.junkFood = `Not Assigned`;
       }
-      info.bmi = info.weight / (info.height * info.height);
+      info.bmi = (info.weight * 10000) / (info.height * info.height);
+      info.bmi = info.bmi.toFixed(2);
       setPatient(info);
     });
-  }, [setPatient,params.id]);
+  }, [setPatient, params.id]);
 
   console.log(patient);
 
