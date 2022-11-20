@@ -21,7 +21,7 @@ const Doctor = () => {
   };
 
   return (
-    <>
+    <Container maxWidth="lg">
       <Box
         sx={{
           m: 4,
@@ -30,17 +30,20 @@ const Doctor = () => {
           fontWeight: 500,
           boxShadow: 2,
           borderRadius: 1,
+          position:"relative",
+          ml:15
         }}
       >
         <Box
           sx={{
             color: "white",
-            display: "inline-block",
+            display: "inline-flex",
             mr: 1,
             p: 1,
             fontSize: "1.2rem",
             bgcolor: "primary.dark",
             borderRadius: 1,
+            
           }}
         >
           9+
@@ -157,7 +160,7 @@ const Doctor = () => {
           </Box>
         </Box>
       </Container>
-    </>
+    </Container>
   );
 };
 

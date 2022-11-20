@@ -65,15 +65,16 @@ const PatientProfile = () => {
       >
         <AccountCircleIcon sx={{ width: "8rem", height: "8rem", mr: 1 }} />
         {patient.name}
+        <Typography textAlign="center">Age:24</Typography>
+        <Typography textAlign="center">Male</Typography>
       </span>
-      <Box>
+      <Box pt="10px" textAlign="center">
         Genereated Report
         <Link textAlign="center" href="#" color="inherit">
           <br></br>View
         </Link>
       </Box>
       <Container>
-        <BasicCard />
         <List>
           <ListItem>
             <span style={{ display: "flex", alignItems: "center" }}>
@@ -99,12 +100,11 @@ const PatientProfile = () => {
               <AccountCircleIcon
                 sx={{ width: "2rem", height: "2rem", mr: 1 }}
               />
-              <Typography variant="subtitle1">
-                BMI: {patient.bmi}
-              </Typography>
+              <Typography variant="subtitle1">BMI: {patient.bmi}</Typography>
             </span>
           </ListItem>
         </List>
+        <BasicCard />
       </Container>
     </Container>
   );

@@ -29,7 +29,7 @@ const patients = [
 export default function BasicCard() {
   return (
     <Container>
-      <Card sx={{ minWidth: 275, backgroundColor: "#eeeeee", mt: "10px" }}>
+      {/* <Card sx={{ minWidth: 275, backgroundColor: "#eeeeee", mt: "10px" }}>
         <CardContent>
           <TableContainer>
             <Table sx={{ minWidth: 500 }}>
@@ -57,7 +57,7 @@ export default function BasicCard() {
             </Table>
           </TableContainer>
         </CardContent>
-      </Card>
+      </Card> */}
       <Box
         sx={{
           m: 1,
