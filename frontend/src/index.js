@@ -12,8 +12,6 @@ import ErrorPage from "./Pages/ErrorPage";
 import AuthenticationFailed from "./Pages/AuthenticationFailed";
 
 
-
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -29,6 +27,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
             path="AuthenticationFailed"
             element={<AuthenticationFailed />}
           />
+          <Route path="*" element={<ErrorPage/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

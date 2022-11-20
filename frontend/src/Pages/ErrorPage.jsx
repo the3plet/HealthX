@@ -1,10 +1,9 @@
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { Typography } from "@mui/material";
-import { textAlign } from "@mui/system";
 import { Link } from "react-router-dom";
+import { Link as Linkstyle } from "@mui/material";
 
 export default function SimpleContainer() {
   return (
@@ -21,7 +20,9 @@ export default function SimpleContainer() {
         >
           Page Not Found 404
         </Typography>
-        <Link href="#">Return To Home Page</Link>
+        <Link to="/">
+          <Linkstyle component="p">Return to homepage</Linkstyle>
+        </Link>
       </Container>
     </React.Fragment>
   );

@@ -36,10 +36,10 @@ const PatientList = () => {
     >
       <TableContainer>
         <Table sx={{ minWidth: 500 }}>
-          <TableHead sx={{ bgcolor: "primary.light" }}>
+          <TableHead sx={{ bgcolor: "primary.dark" }}>
             <TableRow>
               <TableCell colSpan={2}>
-                <Typography variant="h6">Your Patients</Typography>
+                <Typography sx={{color:"primary.contrastText"}} variant="h6">Your Patients</Typography>
               </TableCell>
             </TableRow>
           </TableHead>
