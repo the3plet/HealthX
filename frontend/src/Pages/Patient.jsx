@@ -34,9 +34,6 @@ const Patient = () => {
     activity: 0,
   });
 
-  
-
-
   const handleNameChange = (e) => {
     setFormData((prev) => ({ ...prev, name: e.target.value }));
   };
@@ -252,7 +249,7 @@ const Patient = () => {
                 color="primary"
                 sx={{ my: 2, flexGrow: 0.4 }}
                 value={formData.height}
-                onChange={handlePhoneChange}
+                onChange={handleHeightChange}
               />
               <TextField
                 label="Weight (in Kg)"
@@ -261,7 +258,7 @@ const Patient = () => {
                 color="primary"
                 sx={{ my: 2, flexGrow: 0.4 }}
                 value={formData.weight}
-                onChange={handlePhoneChange}
+                onChange={handleWeightChange}
               />
            </Stack>
             <Typography variant="h6" sx={{ fontWeight: 500 }}>
