@@ -4,9 +4,9 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const patientsRouter = require('./controllers/patients')
 
-
-app.use(cors());
 app.use(express.json());
+app.use(cors());
+
 
 app.get('/',(req,res)=>{
     res.send('<p>Hello user</p>')

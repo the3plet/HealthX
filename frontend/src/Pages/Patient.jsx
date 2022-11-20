@@ -14,6 +14,11 @@ import {
 } from "@mui/material";
 import { dblClick } from "@testing-library/user-event/dist/click";
 import React from "react";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormLabel from "@mui/material/FormLabel";
+
 
 const Patient = () => {
  
@@ -60,12 +65,14 @@ const Patient = () => {
               <TextField
                 label="Name"
                 variant="standard"
+                type="text"
                 color="primary"
                 sx={{ my: 2, flexGrow: 0.4 }}
               />
               <TextField
                 label="Age"
                 variant="standard"
+                type="number"
                 color="primary"
                 sx={{ my: 2, flexGrow: 0.4 }}
               />
@@ -82,12 +89,14 @@ const Patient = () => {
               <TextField
                 label="Email"
                 variant="standard"
+                type="text"
                 color="primary"
                 sx={{ my: 2, flexGrow: 0.4 }}
               />
               <TextField
                 label="Phone"
                 variant="standard"
+                type="number"
                 color="primary"
                 sx={{ my: 2, flexGrow: 0.4 }}
               />
@@ -102,12 +111,29 @@ const Patient = () => {
                 mb: 2,
               }}
             >
-              <TextField
-                label="Sex"
-                variant="standard"
-                color="primary"
-                sx={{ my: 2, flexGrow: 0.4 }}
-              />
+              <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
+              <RadioGroup
+                aria-labelledby="demo-radio-buttons-group-label"
+                defaultValue="female"
+                name="radio-buttons-group"
+                sx={{ "& .MuiSvgIcon-root": { fontSize: 20 } }}
+              >
+                <FormControlLabel
+                  value="female"
+                  control={<Radio />}
+                  label="Female"
+                />
+                <FormControlLabel
+                  value="male"
+                  control={<Radio />}
+                  label="Male"
+                />
+                <FormControlLabel
+                  value="other"
+                  control={<Radio />}
+                  label="Other"
+                />
+              </RadioGroup>
               <TextField
                 label="Place"
                 variant="standard"
@@ -135,9 +161,9 @@ const Patient = () => {
               >
                 <InputLabel>Do you smoke?</InputLabel>
                 <Select label="Do you smoke?">
-                  <MenuItem value={10}>No</MenuItem>
-                  <MenuItem value={20}>Passively (1-3 times a week)</MenuItem>
-                  <MenuItem value={30}>Actively (6-7 times a week)</MenuItem>
+                  <MenuItem value={10}>I don't Smoke</MenuItem>
+                  <MenuItem value={20}>Rarely</MenuItem>
+                  <MenuItem value={30}>Frequently (6-7 times a week)</MenuItem>
                 </Select>
               </FormControl>
               <FormControl
@@ -151,9 +177,9 @@ const Patient = () => {
                   id="demo-simple-select"
                   label="Age"
                 >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={10}>I don't Drink</MenuItem>
+                  <MenuItem value={20}>Rarely</MenuItem>
+                  <MenuItem value={30}>Frequently</MenuItem>
                 </Select>
               </FormControl>
             </Stack>
@@ -172,11 +198,11 @@ const Patient = () => {
                 fullWidth
                 sx={{ my: 2, flexGrow: 0.4 }}
               >
-                <InputLabel>Do you smoke?</InputLabel>
+                <InputLabel>Do you eat Junk Food?</InputLabel>
                 <Select label="Do you smoke?">
-                  <MenuItem value={0}>Nope</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={0}>Slightly/Nil</MenuItem>
+                  <MenuItem value={20}>Moderately</MenuItem>
+                  <MenuItem value={30}>Heavily</MenuItem>
                 </Select>
               </FormControl>
               <FormControl
@@ -184,15 +210,15 @@ const Patient = () => {
                 fullWidth
                 sx={{ my: 2, flexGrow: 0.4 }}
               >
-                <InputLabel>Do you consume alcohol?</InputLabel>
+                <InputLabel>Do you engage in Physical Activities?</InputLabel>
                 <Select
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   label="Age"
                 >
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={10}>No</MenuItem>
+                  <MenuItem value={20}>Rarely</MenuItem>
+                  <MenuItem value={30}>Daily</MenuItem>
                 </Select>
               </FormControl>
             </Stack>
@@ -224,7 +250,6 @@ const Patient = () => {
             </Typography>
           </Box>
         </Box>
-
       </Box>
     </Container>
   );

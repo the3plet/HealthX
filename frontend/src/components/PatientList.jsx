@@ -9,23 +9,38 @@ import {
   Button,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-
-const patients = [
-  { avatar: null, name: "Rajesh" },
-  { avatar: null, name: "Kiran" },
-  { avatar: null, name: "Sebastian" },
-];
+import Db from "../utils/mongo";
 
 const PatientList = () => {
+  const [patients, setPatients] = useState([{ name: "no-name" }]);
+
+  useEffect(() => {
+    Db.getAllPatients().then((res) => setPatients(res));
+  }, []);
+
+
   return (
-    <Container fluid sx={{ my: 1, p: 1 }} maxWidth="md">
+    <Container
+      sx={{
+        my: 1,
+        border: 1,
+        borderRadius: 2,
+        padding: "0 !important",
+        borderColor: "darkgray",
+        boxShadow: 4,
+        overflow: "hidden",
+      }}
+      maxWidth="md"
+    >
       <TableContainer>
         <Table sx={{ minWidth: 500 }}>
-          <TableHead>
+          <TableHead sx={{ bgcolor: "primary.light" }}>
             <TableRow>
-              <Typography variant="h6">Patient Tracker</Typography>
+              <TableCell colSpan={2}>
+                <Typography variant="h6">Your Patients</Typography>
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -35,13 +50,15 @@ const PatientList = () => {
                   <TableCell sx={{ py: 1, px: 1 }}>
                     <span style={{ display: "flex", alignItems: "center" }}>
                       <AccountCircleIcon
-                        sx={{ width: "2rem", height: "2rem", mr: 1 }}
+                        sx={{ width: "2rem", height: "2rem", mx: 1 }}
                       />
-                      {patient.name}
+                      <Typography variant="body1">{patient.name}</Typography>
                     </span>
                   </TableCell>
-                  <TableCell  align="right">
-                    <Button variant="contained" sx={{mr:1}}>View Report</Button>
+                  <TableCell align="right">
+                    <Button variant="contained" sx={{ mr: 1 }}>
+                      View Report
+                    </Button>
                     <Button variant="text">Patient Info</Button>
                   </TableCell>
                 </TableRow>
