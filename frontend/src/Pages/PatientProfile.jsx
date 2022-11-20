@@ -32,10 +32,11 @@ const PatientProfile = () => {
         <AccountCircleIcon sx={{ width: "8rem", height: "8rem", mr: 1 }} />
         {patient.name}
       </span>
-      <Box>
-      Genereated Report 
+      <Typography textAlign="center">Patient Name</Typography>
+      <Typography textAlign="center">Age:24</Typography>
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Link textAlign="center" href="#" color="inherit">
-            <br></br>View
+          <br></br>View Report
         </Link>
       </Box>
       <Container>
