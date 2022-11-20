@@ -6,9 +6,10 @@ const patientsRouter = require('./controllers/patients')
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static("build"))
 
 
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
     res.send('<p>Hello user</p>')
 })
 
