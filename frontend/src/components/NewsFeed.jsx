@@ -1,4 +1,4 @@
-import { Box, Container, Divider, Typography } from "@mui/material";
+import { Box, Container, Divider, Link, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
@@ -27,11 +27,11 @@ const NewsFeed = () => {
   return (
     <Container
       maxWidth="md"
-      sx={{ mx: "auto", overflow: "hidden", height: "30rem", mt: 3, mb: 5 }}
+      sx={{ mx: "auto", height: "30rem", mt: 3, mb: 5 }}
     >
       <Box
         sx={{
-          overflowY: "auto",
+          overflowY: "hidden",
           border: 2,
           height: "30rem",
           borderRadius: 2,
@@ -55,7 +55,6 @@ const NewsFeed = () => {
           sx={{
             overflowY: "auto",
             height: "30rem",
-    
             position: "relative",
           }}
         >
@@ -64,10 +63,20 @@ const NewsFeed = () => {
               return (
                 <>
                   <Box sx={{ width: "100%", my: 1, px: 2 }}>
-                    <Typography variant="h6">{news.title}</Typography>
-                    <Typography variant="body2">
-                      source: {news.source}
-                    </Typography>
+                    <Link
+                    referrerPolicy="no-referrer"
+                      href={news.url}
+                      sx={{
+                        color: "inherit",
+                        textDecoration: "none",
+                        "&:hover": { textDecoration: "underline" },
+                      }}
+                    >
+                      <Typography variant="h6">{news.title}</Typography>
+                      <Typography variant="body2">
+                        source: {news.source}
+                      </Typography>
+                    </Link>
                   </Box>
                   <Divider />
                 </>
