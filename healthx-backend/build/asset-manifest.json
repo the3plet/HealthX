@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.7853ccc4.css",
-    "main.js": "/static/js/main.d596da67.js",
+    "main.js": "/static/js/main.dacb1d94.js",
     "static/media/doctor_image.png": "/static/media/doctor_image.cb0acd39e9bd32273e2a.png",
     "static/media/patient_illu.png": "/static/media/patient_illu.3d0fddc8f9de50d02667.png",
     "static/media/roboto-all-500-normal.woff": "/static/media/roboto-all-500-normal.0ab669b7a0d19b178f57.woff",
@@ -39,10 +39,10 @@
     "static/media/roboto-greek-ext-700-normal.woff2": "/static/media/roboto-greek-ext-700-normal.bd9854c751441ccc1a70.woff2",
     "index.html": "/index.html",
     "main.7853ccc4.css.map": "/static/css/main.7853ccc4.css.map",
-    "main.d596da67.js.map": "/static/js/main.d596da67.js.map"
+    "main.dacb1d94.js.map": "/static/js/main.dacb1d94.js.map"
   },
   "entrypoints": [
     "static/css/main.7853ccc4.css",
-    "static/js/main.d596da67.js"
+    "static/js/main.dacb1d94.js"
   ]
 }
