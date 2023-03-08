@@ -7,7 +7,7 @@ It focus to make smooth communication amoung doctors and patients along with pro
 - Online doctor booking facility
 - Check availability of slots online
 
-## [Check Out](health-kyaf.onrender.com)
+## [Check Out](www.health-kyaf.onrender.com)
 
 ### Credentials
 
